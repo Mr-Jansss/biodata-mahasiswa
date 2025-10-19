@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import { sequelize } from "../config/db.js";
 import { User } from "../models/user.js";
 import { Mahasiswa } from "../models/mahasiswa.js";
@@ -20,7 +20,7 @@ async function run() {
     await sequelize.sync({ force: true }); // reset semua tabel biar bersih
 
     // === 1. Buat akun admin ===
-    const adminHash = await bcrypt.hash("123", 10);
+    const adminHash = await bcryptjs.hash("123", 10);
     const admin = await User.create({
       username: "admin",
       password_hash: adminHash,
@@ -35,7 +35,7 @@ async function run() {
       const jurusan = "Ilmu Komputer";
       const angkatan = 2021 + (i % 4);
       const username = "mhs" + (i + 1);
-      const passHash = await bcrypt.hash("123", 10);
+      const passHash = await bcryptjs.hash("123", 10);
 
       const user = await User.create({
         username,
