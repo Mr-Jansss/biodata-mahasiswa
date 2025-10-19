@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel - Data Mahasiswa</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>📘 Panel Admin - Data Mahasiswa</h1>
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </header>
+
+  <main>
+    <!-- FORM MAHASISWA -->
+    <section class="form-section">
+      <h2 id="formTitle">🧑‍🎓 Tambah / Edit Mahasiswa</h2>
+      <form id="formMahasiswa">
+        <input type="hidden" id="idMahasiswa" />
+        <label>Nama:</label>
+        <input type="text" id="nama" required />
+
+        <label>NIM:</label>
+        <input type="text" id="nim" required />
+
+        <label>Jurusan:</label>
+        <input type="text" id="jurusan" required />
+
+        <label>Angkatan:</label>
+        <input type="number" id="angkatan" />
+
+        <label>Username Mahasiswa:</label>
+        <input type="text" id="username" placeholder="Username untuk login mahasiswa" required />
+
+        <label>Password Mahasiswa:</label>
+        <input type="password" id="password" placeholder="Password untuk login mahasiswa" required />
+
+        <button type="submit">💾 Simpan Mahasiswa</button>
+      </form>
+    </section>
+
+    <!-- FORM ADMIN -->
+    <section class="form-section">
+      <h2>🧑‍💼 Tambah Akun Admin Baru</h2>
+      <form id="formAdmin">
+        <label>Username Admin:</label>
+        <input type="text" id="adminUsername" required />
+
+        <label>Password Admin:</label>
+        <input type="password" id="adminPassword" required />
+
+        <button type="submit">⚙️ Tambah Admin</button>
+      </form>
+    </section>
+
+    <!-- LIST MAHASISWA -->
+    <section class="table-section">
+      <h2>📋 Daftar Mahasiswa</h2>
+      <input type="text" id="search" placeholder="Cari nama atau NIM..." />
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>NIM</th>
+            <th>Jurusan</th>
+            <th>Angkatan</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+      <div id="pagination"></div>
+    </section>
+  </main>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

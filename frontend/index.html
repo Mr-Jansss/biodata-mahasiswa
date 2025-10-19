@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Mahasiswa</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>📚 Sistem Data Mahasiswa</h1>
+  </header>
+
+  <main>
+    <!-- ===================== -->
+    <!-- 🔍 SEARCH DAN DAFTAR  -->
+    <!-- ===================== -->
+    <section id="listSection">
+      <h2>Daftar Mahasiswa</h2>
+      <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+        <input type="text" id="searchInput" placeholder="Cari nama atau NIM..." />
+        <button id="searchBtn">Cari</button>
+      </div>
+
+      <div id="mahasiswaList"></div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <button id="prevBtn">Sebelumnya</button>
+        <span id="pageInfo">Halaman 1</span>
+        <button id="nextBtn">Berikutnya</button>
+      </div>
+    </section>
+
+    <hr style="margin: 30px 0;" />
+
+    <!-- ===================== -->
+    <!-- 🔐 LOGIN FORM -->
+    <!-- ===================== -->
+    <section id="loginForm">
+      <h2>Masuk</h2>
+      <form>
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p>
+        Belum punya akun?
+        <span class="link" id="toggleRegister">Klik di sini</span>
+      </p>
+    </section>
+
+    <!-- ===================== -->
+    <!-- 📝 REGISTER FORM -->
+    <!-- ===================== -->
+    <section id="registerForm" class="hidden">
+      <h2>Buat Akun Mahasiswa</h2>
+      <form>
+        <input type="text" id="regNama" placeholder="Nama Lengkap" required />
+        <input type="text" id="regNim" placeholder="NIM" required />
+        <input type="text" id="regJurusan" placeholder="Jurusan" required />
+        <input type="number" id="regAngkatan" placeholder="Angkatan" required />
+        <input type="text" id="regUsername" placeholder="Username" required />
+        <input type="password" id="regPassword" placeholder="Password" required />
+        <button type="submit">Daftar</button>
+      </form>
+      <p>
+        Sudah punya akun?
+        <span class="link" id="toggleRegisterBack">Login di sini</span>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 MrJans Punya
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script>
+    // handle "Klik di sini" dari kedua sisi (login <-> register)
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const toggleRegister = document.getElementById("toggleRegister");
+      const toggleRegisterBack = document.getElementById("toggleRegisterBack");
+
+      if (toggleRegister) {
+        toggleRegister.addEventListener("click", () => {
+          loginForm.classList.add("hidden");
+          registerForm.classList.remove("hidden");
+        });
+      }
+
+      if (toggleRegisterBack) {
+        toggleRegisterBack.addEventListener("click", () => {
+          registerForm.classList.add("hidden");
+          loginForm.classList.remove("hidden");
+        });
+      }
+    });
+  </script>
+</body>
+</html>
