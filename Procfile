@@ -1,2 +1,2 @@
-build = "cd backend && npm install"
-start = "cd backend && npm start"
+build: cd backend && npm install
+start: cd backend && npm start
