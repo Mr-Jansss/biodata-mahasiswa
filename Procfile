@@ -1,1 +1,2 @@
-root=backend
+build = "cd backend && npm install"
+start = "cd backend && npm start"
